@@ -1,2 +1,2 @@
 # ClassReunion
-A web-based platform for all the alumni to keep in touch with their college. Build with python flask and MongoDb
+A web-based platform for all the alumni to keep in touch with their college. Build with python flask and MongoDb. Alumni Tracking System is a Web based system to help the colleges to stay in touch with alumni, easy to use and complete functional system for monitoring alumni and help alumni to get notified about college activities.To appreciate the achievement of alumni college can send them messages.   
