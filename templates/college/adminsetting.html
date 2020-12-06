@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Setting AdminPanel</title>
+
+  <!-- Favicons -->
+  <link href="../../static/img/Capture.PNG" rel="icon">
+  <link href="../../static/img/Capture.PNG" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  
+    <!-- Bootstrap CSS File -->
+    <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Libraries CSS Files -->
+    <link href="../../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  
+    <!-- Main Stylesheet File -->
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <title>Search People</title>
+<link rel="shortcut icon" href="../../static/img/Capture.PNG" type="image/x-icon">
+    <!-- Icons font CSS-->
+    <link href="../../static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../../static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="../../static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../../static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../../static/css/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <header id="header" class="fixed-top">
+        <div class="container">
+    
+          <div class="logo float-left">
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+            <a href="#intro" class="scrollto"><img src="../../static/img/Capture.PNG" alt="" class="img-fluid"></a>
+          </div>
+    
+          <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+              <li ><a href="/collegedashbord">Home</a></li>
+              <li ><a href="/adminpanel">AdminPanel</a></li> 
+              <li><a href="/adminuser">User</a></li>
+              <li ><a href="/admincreateevent">Event</a></li>
+            <li><a href="/alumnidirectory">Alumni Directory</a></li>
+              <li class="active"><a href="/adminsetting">Setting</a></li>
+              <li><a href="../collegelogin.html">Logout</a></li>
+    
+            </ul>
+          </nav><!-- .main-nav -->
+          
+        </div>
+      </header><!-- #header -->
+      <br><br><br><br><br><br>
+
+
+
+<!-- Mitaoe Movement End Here -->
+<!-- Container for the Documentation end here -->
+
+<!--==========================
+      Portfolio Section
+    ============================-->
+    <section id="portfolio" class="clearfix">
+        <div class="container">
+  
+          <header class="section-header">
+            <h3 class="section-title">Edit Institute</h3>
+          </header>
+  <br>
+          <div class="row">
+            <div class="col-lg-12">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-app">Basic Info</li>
+                <li data-filter=".filter-card">Images</li>
+                <li data-filter=".filter-car">Verification</li>
+                <li data-filter=".filter-ca">Course</li>
+            
+              </ul>
+            </div>
+          </div>
+  
+          <div class="row portfolio-container">
+  
+            <div class="col portfolio-item filter-app">
+             
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">College Full Name</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="MIT Academy of Enginnering" aria-describedby="emailHelp" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Graduted Month</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Jan</option>
+                          <option>Feb</option>
+                          <option>Mar</option>
+                          <option>April</option>
+                          <option>May</option>
+                        </select>
+                      </div><br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Foundation Year</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="1971" placeholder="Password">
+                    </div>
+                   <br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Website Domain</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1 "  placeholder="www.mitaoe.ac.in">
+                      </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+            </div>
+  <hr>
+            <div class="col portfolio-item filter-card">
+             
+                <form>
+                    <h2>Images</h2>
+  <br>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Logo</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+  <br>
+  
+  <div class="form-group">
+    <label for="exampleFormControlFile1">background Image</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+            </div>
+            
+
+
+
+            <div class="col portfolio-item filter-car">
+             
+                <form>
+                    <h2>Verification</h2>
+  <br>
+
+<h4>Verification Strategies :
+</h4>
+<br>
+<div class="p-t-10">
+    <label class="radio-container m-r-45">manual approval
+        <input type="radio" >
+        <span class="checkmark"></span>
+    </label>
+    <label class="radio-container">Automatic approval
+        <input type="radio" checked="checked" name="gender">
+        <span class="checkmark"></span>
+    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+</div>
+<br>
+
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+            </div>
+
+
+
+
+            <div class="col portfolio-item filter-ca">
+             
+                <form>
+                    <h2>Courses</h2>
+  <br>
+
+<h4>Courses Offered :
+
+</h4>
+<br>
+<button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#addcourse">Add Branch</button>
+<div class="p-t-10">
+ 
+    <br><br><br><br><br>
+    <label class="radio-container m-r-45">Mechanical Enginnering
+        <input type="radio" >
+        <span class="checkmark"></span>
+    </label>
+    <label class="radio-container">Computer Enginnering
+        <input type="radio" >
+        <span class="checkmark"></span>
+    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label class="radio-container">Electrical Enginnering
+            <input type="radio" name="gender">
+            <span class="checkmark"></span>
+        </label>
+</div>
+<br><br>
+
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+            </div>
+
+           
+          </div>
+  
+        </div>
+      </section><!-- #portfolio -->
+<br><br>
+
+
+<!-- Model for the Add Course  -->
+
+<!-- Modal -->
+<div class="modal fade" id="addcourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Branch</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Enter Branch Name</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Enter HOD Name</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" >
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Model for the Add Course End Here -->
+
+<!-- Section only for the Dilog box or Notification -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../../static/img/noresult.png" height="300px" width="450px;" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Section end here -->
+
+<!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>Class reunion</h3>
+            <p>Someday many years from now
+                We'll sit beside the candles glow
+                Exchanging tales about our past
+                And laughing as the memories flow
+                And when that distant day arrives
+                I know it will be understood
+                That friendship is the key to live
+                And we were friends and it was good.
+              <br>
+              -- Eileen Hehl
+              </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p style="color:white;">
+            Students of  MIT Academy of Engineering
+              <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> student@mitaoe.ac.in<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p style="color:white">Subscribe our Newsletter to and get our valueable feedback just by sending our email to us.</p>
+            <form action="" method="post">
+              <input type="email" placeholder="Enter Email" name="email"><input type="submit"  value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Class reunion</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       
+        Designed by <a href="#">Team Staunch</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+    <!-- Jquery JS-->
+    <script src="../../static/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="../../static/vendor/select2/select2.min.js"></script>
+    <script src="../../static/vendor/datepicker/moment.min.js"></script>
+    <script src="../../static/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="../../static/js/global.js"></script>
+ <!-- JavaScript Libraries -->
+  <script src="../../static/lib/jquery/jquery.min.js"></script>
+  <script src="../../static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/lib/easing/easing.min.js"></script>
+  <script src="../../static/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="../../static/lib/wow/wow.min.js"></script>
+  <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+  <script src="../../static/lib/counterup/counterup.min.js"></script>
+  <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../static/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="../../static/lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../../static/js/main.js"></script>
+</body>
+</html>
+<!-- end document-->

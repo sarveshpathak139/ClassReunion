@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AdminPanel</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+<!-- Favicons -->
+<link href="../../static/img/Capture.PNG" rel="icon">
+<link href="../../static/img/Capture.PNG" rel="apple-touch-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../../static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+        <a href="#intro" class="scrollto"><img src="../../static/img/Capture.PNG" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li ><a href="/collegedashbord">Home</a></li>
+          <li ><a href="/adminpanel">AdminPanel</a></li> 
+          <li class="active"><a href="/adminuser">User</a></li>
+          <li ><a href="/admincreateevent">Event</a></li>
+        <li><a href="/alumnidirectory">Alumni Directory</a></li>
+          <li><a href="/adminsetting">Setting</a></li>
+          <li><a href="../collegelogin.html">Logout</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->
+
+<br><br><br><br><br><br>
+<center>
+    <h1>All Users</h1>
+    <hr style="border-bottom: 3px solid #007bff;width: 40px;">
+</center>
+<br>
+<button class="btn btn-primary" style="float:right;margin-right: 40px;" onclick="exportTableToExcel('myTable');" >Export to Excel</button>
+<button class="btn btn-primary" style="float:right;margin-right: 3px;;"  data-toggle="modal" data-target="#sendmail">Send Email</button>
+<button class="btn btn-primary" style="float: right;margin-right: 5px;" data-toggle="modal" data-target="#sendmsg">Send Message</button>
+<button class="btn btn-primary" style="float: right;margin-right: 5px;" data-toggle="modal" data-target="#adduser">Add User</button>
+<br><br><br>
+<center><b>{{ uname }}</b></center>
+<div class="container">
+    <input class="form-control" id="myInput" onkeyup="myFunction()" type="text" placeholder="Search User Name here..">
+    <br>
+    <select name="" id="mylist" onchange="myFunctions()" >
+      <option value="">Select Branch</option>
+      <option value="Information Technology">Information Technology</option>
+      <option value="Computer Engineering">Computer Engineering</option>
+      <option value="electrical">Electrical Engineering</option>
+      <option value="mechnical">Mechanical Engineering</tion>
+      <option value="E&TC">E&TC Engineering</option>
+      <option value="Chemical">Chemical Engineering</option>
+      <option value="Electronics">Electronics Engineering</option>
+
+    </select>
+    
+    <select name="" id="mylist1" onchange="searchyear()" onchange="myFunction1()">
+      <option >Select Join Year</option>
+      <option >2019</option>
+      <option>2018</option>
+      <option >2017</option>      
+      <option >2016</option>         
+      <option >2015</option>         
+      <option >2014</option>         
+      <option >2013</option>         
+      <option >2012</option>         
+      <option >2011</option>         
+      <option >2010</option>         
+
+    </select>
+    <br><br>
+    <table class="table table-bordered table-striped" id="myTable">
+      <thead>
+        <tr>
+          <th>PRN</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Branch</th>
+          <th>Join Year</th>
+          <th>Passout Year</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        {% for item in lp %} 
+
+        <tr>
+          <td>{{item["student_id"]}}</td>
+          <td>{{item["student_name"]}}</td>
+          <td>{{item["student_email"]}}</td>
+          <td>{{item["student_branch"]}}</td>
+          <td>{{item["student_join_year"]}}</td>
+          <td>{{item["student_end_year"]}}</td>
+         
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  
+  </div>
+  
+
+  <script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+    </script>
+
+<script>
+
+function myFunctions() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("mylist");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+
+<script>
+
+  function searchyear() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("mylist1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[4];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  </script>
+
+
+<!-- JavaScript Code to Export to Excel -->
+
+<script>
+
+  function exportTableToExcel(tableID, filename = ''){
+      var downloadLink;
+      var dataType = 'application/vnd.ms-excel';
+      var tableSelect = document.getElementById(tableID);
+      var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+      
+      // Specify file name
+      filename = filename?filename+'.xls':'excel_data.xls';
+      
+      // Create download link element
+      downloadLink = document.createElement("a");
+      
+      document.body.appendChild(downloadLink);
+      
+      if(navigator.msSaveOrOpenBlob){
+          var blob = new Blob(['\ufeff', tableHTML], {
+              type: dataType
+          });
+          navigator.msSaveOrOpenBlob( blob, filename);
+      }else{
+          // Create a link to the file
+          downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+      
+          // Setting the file name
+          downloadLink.download = filename;
+          
+          //triggering the function
+          downloadLink.click();
+      }
+  }
+  
+  </script>
+  
+<!-- JavaScript Code for Export to Excel End Here -->
+
+  <br><br>
+<!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>Class reunion</h3>
+            <p>Someday many years from now
+                We'll sit beside the candles glow
+                Exchanging tales about our past
+                And laughing as the memories flow
+                And when that distant day arrives
+                I know it will be understood
+                That friendship is the key to live
+                And we were friends and it was good.
+              <br>
+              -- Eileen Hehl
+              </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+            Students of  MIT Academy of Engineering
+              <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> student@mitaoe.ac.in<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe our Newsletter to and get our valueable feedback just by sending our email to us.</p>
+            <form action="" method="post">
+              <input type="email" placeholder="Enter Email" name="email"><input type="submit"  value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Class reunion</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       
+        Designed by <a href="#">Team Staunch</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+
+<!-- Section only for the Dilog box or Notification -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+  <div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../../static/img/noresult.png" height="300px" width="450px;" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#sendnoti">Add Notification</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Section end here -->
+
+<!-- Send Email to User -->
+
+<!-- Modal -->
+<div class="modal fade" id="sendmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form  action="/sendmailmodule" method="POST" >
+              <div class="form-group">
+                <label for="exampleInputEmail1">Recipents</label>
+                <input type="text" class="form-control" name="receiver" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Subject</label>
+                <input type="text" class="form-control" name="subject" placeholder="Enter Subject">
+              </div>
+      
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Message</label>
+                  <textarea class="form-control" name="message" rows="3" placeholder="Enter the Message.."></textarea>
+                </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Section end here -->
+
+<!-- Send Email to the user End here -->
+
+<!-- Send Email to the user End here -->
+
+<!-- Send Text Message to Uaer -->
+<!-- Send Email to User -->
+
+<!-- Modal -->
+<div class="modal fade" id="sendmsg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/sendmessages" method="POST">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Mobile Number</label>
+                  <input type="text" name="receiver" class="form-control"   aria-describedby="emailHelp" placeholder="Enter Mobile Number">
+                </div>
+             
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" name="message" rows="3" placeholder="Enter the Message.."></textarea>
+                  </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Section end here -->
+<!-- End text msg send Here -->
+
+
+
+
+
+
+
+<!-- Add user to system Code start here -->
+
+<!-- Modal -->
+<div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form action="/addstudentdata" method="POST">
+              <div class="form-group">
+                <label for="exampleInputEmail1">PRN</label>
+                <input type="number" minlength="10" maxlength="10" class="form-control" id="exampleInputEmail1" name="std_id" aria-describedby="emailHelp" placeholder="Enter PRN Number">
+              </div>
+           
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="std_name" aria-describedby="emailHelp" placeholder="Enter Name">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter Email">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Phone Number</label>
+                <input type="number" minlength="10" maxlength="10" class="form-control" id="exampleInputEmail1" name="pnum" aria-describedby="emailHelp" placeholder="Enter Email">
+              </div>
+
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">College Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="college" aria-describedby="emailHelp" placeholder="Enter College Name">
+              </div>
+           
+              <div class="form-group">
+
+                <label for="exampleInputEmail1">Branch</label>
+                <select class="form-control" name="std_branch" id="" >
+                  <option value="">Select Course</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Computer Engineering">Computer Engineering</option>
+                  <option value="Electrical Engineering">Electrical Engineering</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</tion>
+                  <option value="Electronics & Communication">Electronics & Communication Engineering</option>
+                  <option value="Chemical Engineering">Chemical Engineering</option>
+                  <option value="Electronics Engineering">Electronics Engineering</option>
+              </select>
+              </div>
+           
+              <div class="form-group">
+                <label for="exampleInputEmail1">Admission Year</label>
+                <input type="number" minlength="4" maxlength="4" class="form-control" id="exampleInputEmail1" name="admit_year" aria-describedby="emailHelp" placeholder="Enter Addmission year Ex. 2018">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Passout Year</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" name="passout_year" aria-describedby="emailHelp" placeholder="Enter Addmission year Ex. 2021">
+              </div>
+           
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Section end here -->
+<!-- End text msg send Here -->
+
+<!-- Add user code end Here -->
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="sendmsg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form action="/sendmessages" method="POST">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Mobile Number</label>
+                <input type="text" class="form-control" name="receiver"  aria-describedby="emailHelp" placeholder="Enter Mobile Number">
+              </div>
+           
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Message</label>
+                  <textarea class="form-control" name="message" rows="3" placeholder="Enter the Message.."></textarea>
+                </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Section end here -->
+<!-- End text msg send Here -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="../../static/lib/jquery/jquery.min.js"></script>
+  <script src="../../static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/lib/easing/easing.min.js"></script>
+  <script src="../../static/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="../../static/lib/wow/wow.min.js"></script>
+  <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+  <script src="../../static/lib/counterup/counterup.min.js"></script>
+  <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../static/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="../../static/lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../../static/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Class reunion</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="static/img/Capture.PNG" rel="icon">
+  <link href="static/img/Capture.PNG" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+<style>
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  width: 93%;
+  border-top: none;
+  z-index: 99;
+
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+</style>
+
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+        <a href="#intro" class="scrollto"><img src="static/img/Capture.PNG" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About Us</a></li> 
+          <!-- <li><a href="#portfolio">Portfolio</a></li>
+          <li class="drop-down"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Drop Down 2</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li> -->
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="/homelog">Login</a></li>
+
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro" class="clearfix">
+    <div class="container">
+
+      <div class="intro-img">
+        <img src="static/img/intro-img.svg" alt="" class="img-fluid">
+      </div>
+<style>
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 1.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+</style>
+      <div class="intro-info">
+        <h2>Don't count the <br><span style="color: white;">years</span><br>count the memories.!</h2>
+        <div>
+          
+  <!-- Another variation with a button
+  <form autocomplete="off" action="">
+    <div class="autocomplete" >
+  <div class="input-group">
+      <input type="text" id="myInput" class="form-control"  placeholder="Search your College">
+      <div class="input-group-append">
+        <a href="/homelog" style="text-decoration: none;color: white;"><button class="btn btn-secondary" type="button">
+         <i class="fa fa-search"></i>
+        </button></a>
+      </div>
+    </div>
+    </div>
+
+  </form> -->
+
+
+
+<!-- Code for Search the College -->
+
+<script>
+  function autocomplete(inp, arr) {
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function(e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false;}
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+          /*check if the item starts with the same letters as the text field value:*/
+          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            /*create a DIV element for each matching element:*/
+            b = document.createElement("DIV");
+            /*make the matching letters bold:*/
+            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length);
+            /*insert a input field that will hold the current array item's value:*/
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            /*execute a function when someone clicks on the item value (DIV element):*/
+            b.addEventListener("click", function(e) {
+                /*insert the value for the autocomplete text field:*/
+                inp.value = this.getElementsByTagName("input")[0].value;
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+            });
+            a.appendChild(b);
+          }
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          /*If the arrow DOWN key is pressed,
+          increase the currentFocus variable:*/
+          currentFocus++;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 38) { //up
+          /*If the arrow UP key is pressed,
+          decrease the currentFocus variable:*/
+          currentFocus--;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          e.preventDefault();
+          if (currentFocus > -1) {
+            /*and simulate a click on the "active" item:*/
+            if (x) x[currentFocus].click();
+          }
+        }
+    });
+    function addActive(x) {
+      /*a function to classify an item as "active":*/
+      if (!x) return false;
+      /*start by removing the "active" class on all items:*/
+      removeActive(x);
+      if (currentFocus >= x.length) currentFocus = 0;
+      if (currentFocus < 0) currentFocus = (x.length - 1);
+      /*add class "autocomplete-active":*/
+      x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+      /*a function to remove the "active" class from all autocomplete items:*/
+      for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+      }
+    }
+    function closeAllLists(elmnt) {
+      /*close all autocomplete lists in the document,
+      except the one passed as an argument:*/
+      var x = document.getElementsByClassName("autocomplete-items");
+      for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != inp) {
+          x[i].parentNode.removeChild(x[i]);
+        }
+      }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
+  }
+  
+  /*An array containing all the country names in the world:*/
+  var countries = ["Army Institute of Technology","MIT Academy of Engineering"];
+  
+  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+  autocomplete(document.getElementById("myInput"), countries);
+  </script>
+
+<!-- Code for search the college end Here -->
+
+
+
+
+
+    <br><br>
+          <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Build a Thriving Alumni Community</h3>
+          <p>A full-fledged alumni networking solution to enable meaningful engagement!
+              Memories are the threads that hold together the patchwork of friendship.
+            </p>
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <p>
+                Always remember to slow down in life; live, breathe, and learn; take a look around you whenever you have time and never forget everything and every person that has the least place within your heart.
+            </p>
+
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+              <h4 class="title"><a href="">ENGAGE ALUMNI WITH EASE</a></h4>
+              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-photo"></i></div>
+              <h4 class="title"><a href="">PROVIDE SUPERIOR GIVING EXPERIENCE TO YOUR ALUMNI</a></h4>
+              <p class="description">In the end, you always go back to the people that were there in the beginning.</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">EFFORTLESSLY KEEP TRACK OF ALL YOUR ALUMNI </a></h4>
+              <p class="description">Sometimes, even when you're having a good time, you can't help but stop and think about how much you miss the old times.</p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            <img src="static/img/about-img.svg" class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp">
+            <img src="static/img/about-extra-1.svg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <h4>Everything you need to keep your alumni engaged!</h4>
+            <p>
+               Class reunion is a one-stop solution for all your alumni networking needs. Our interactive alumni portals come with all the features required to manage your alumni relations seamlessly while keeping your alumni engaged & happy.
+            </p>
+         
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+            <img src="static/img/about-extra-2.svg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+            <h4>YOUR OWN BRANDED ALUMNI NETWORK</h4>
+            <p>
+                Class reunion provides an exclusive network for your alumni to find, connect and network with each other for professional and social reasons. Supercharge your database with information of all your alumni updated from Facebook and LinkedIn automatically. With all the built in benefits like job board, alumni directory, announcements etc it is the best gift you can give your alumni.  A beautiful branded platform. Available on every device. Everywhere.
+            </p>
+           <p>
+              Happiness is being with an old friend after a long time and feeling like nothing has changed. Souls tend to go back to who feels like home
+           </p>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- #about -->
+    <!--==========================
+      Why Us Section
+    ============================-->
+    <section id="why-us" class="wow fadeIn">
+      <div class="container">
+        <header class="section-header">
+          <h3>Features</h3>
+          <p>If you want to achieve excellence, you can get there today. As of this second, quit doing less-than-excellent work.</p>
+        </header>
+
+        <div class="row row-eq-height justify-content-center">
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+                <i class="fa fa-diamond"></i>
+              <div class="card-body">
+                <h5 class="card-title">Facebook & LinkedIn Sync</h5>
+                <p class="card-text">It will fetch the data from the facebook and the linkedin. An build the automatic profile of the user</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+              <div class="card wow bounceInUp">
+                  <i class="fa fa-diamond"></i>
+                <div class="card-body">
+                  <h5 class="card-title">Get Job</h5>
+                  <p class="card-text">Alumni student will get notify about the new job and they will able to apply for the job</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="card wow bounceInUp">
+                    <i class="fa fa-diamond"></i>
+                  <div class="card-body">
+                    <h5 class="card-title">Manage Alumni Database</h5>
+                    <p class="card-text">College should able to manage the Alumni database online. They will get free from the paper work.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mb-4">
+                  <div class="card wow bounceInUp">
+                      <i class="fa fa-diamond"></i>
+                    <div class="card-body">
+                      <h5 class="card-title">Build Strong Alumni network</h5>
+                      <p class="card-text">Build a strong alumni network and get data of all the data of the alumuni.</p>
+                    </div>
+                  </div>
+                </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+                <i class="fa fa-language"></i>
+              <div class="card-body">
+                <h5 class="card-title">Online Event Registrations</h5>
+                <p class="card-text">The Alumni student get register in the College event.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4">
+            <div class="card wow bounceInUp">
+                <i class="fa fa-object-group"></i>
+              <div class="card-body">
+                <h5 class="card-title">Create a Post</h5>
+                <p class="card-text">Create a post to the College about the New Achivement.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+    
+
+      </div>
+    </section>
+
+  
+    
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container-fluid">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+        </div>
+
+        <div class="row wow fadeInUp">
+
+          <div class="col-lg-6">
+            <div class="map mb-4 mb-lg-0">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15119.012054602717!2d73.8927428!3d18.6750761!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc4e495a8c1f663eb!2z4KSP4KSu4KSG4KSv4KSf4KWAIOCkheCkreCkv-Ckr-CkvuCkguCkpOCljeCksOCkv-CkleClgCDgpI3gpJXgpYXgpKHgpK7gpYA!5e0!3m2!1smr!2sin!4v1578776060419!5m2!1smr!2sin"frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-5 info">
+                <i class="ion-ios-location-outline"></i>
+                <p>MIT Academy of Engineering, Pune</p>
+              </div>
+              <div class="col-md-4 info">
+                <i class="ion-ios-email-outline"></i>
+                <p>student@mit</p>
+              </div>
+              <div class="col-md-3 info">
+                <i class="ion-ios-telephone-outline"></i>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-row">
+                  <div class="form-group col-lg-6">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group col-lg-6">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>Class reunion</h3>
+            <p>Someday many years from now
+                We'll sit beside the candles glow
+                Exchanging tales about our past
+                And laughing as the memories flow
+                And when that distant day arrives
+                I know it will be understood
+                That friendship is the key to live
+                And we were friends and it was good.
+              <br>
+              -- Eileen Hehl
+              </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+            Students of  MIT Academy of Engineering
+              <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> student@mitaoe.ac.in<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe our Newsletter to and get our valueable feedback just by sending our email to us.</p>
+            <form action="" method="post">
+              <input type="email" placeholder="Enter Email" name="email"><input type="submit"  value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Class reunion</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
+        -->
+        Designed by <a href="#">Team Staunch</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="static/lib/jquery/jquery.min.js"></script>
+  <script src="static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/lib/easing/easing.min.js"></script>
+  <script src="static/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="static/lib/wow/wow.min.js"></script>
+  <script src="static/lib/waypoints/waypoints.min.js"></script>
+  <script src="static/lib/counterup/counterup.min.js"></script>
+  <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="static/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="static/lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="static/js/main.js"></script>
+
+</body>
+</html>

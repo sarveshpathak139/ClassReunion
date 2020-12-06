@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Class reunion</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../../static/img/Capture.PNG" rel="icon">
+  <link href="../../static/img/Capture.PNG" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Libraries CSS Files -->
+  <link href="../../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../../static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+        <a href="#intro" class="scrollto"><img src="../../static/img/Capture.PNG" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+            <li ><a href="/collegedashbord">Home</a></li>
+            <li ><a href="/adminpanel">AdminPanel</a></li> 
+            <li><a href="/adminuser">User</a></li>
+            <li class="active"><a href="/admincreateevent">Event</a></li>
+          <li><a href="/alumnidirectory">Alumni Directory</a></li>
+            <li><a href="/adminsetting">Setting</a></li>
+            <li><a href="../collegelogin.html">Logout</a></li>
+
+        </ul>
+      </nav><!-- .main-nav -->
+      
+
+
+    </div>
+  </header><!-- #header -->
+
+<br><br><br><br><br><br>
+<center><h1>Create Event</h1>
+<hr class="" style="border-bottom: 3px solid #007bff;width: 50px;">
+</center>
+<a class="btn btn-primary" style="float:right;margin-right: 9%;" href="#" data-toggle="modal" data-target="#notification" style="color:white">Publish Notice</a></button>
+<a class="btn btn-primary" style="float:right;margin-right: 1%;" href="/adminseeevent" style="color:white" >See Event</a></button>
+<a class="btn btn-primary" style="float:right;margin-right: 1%;" href="/adminfundraise" style="color:white" >Fund Raise</a></button>
+
+<br><br>
+<div class="form">
+    <div class="container">
+        <form action="/adminaddevent" method="POST" >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Event Title</label>
+              <input type="text" class="form-control" name="eventtitle" >
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Location</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="location">
+                  <option></option>
+                  <option>Pune</option>
+                  <option>Mumbai</option>
+                  <option>Alandi</option>
+                  <option>Nagpur</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Event Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="event_description"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Choose Date & Time</label>
+              <input type="date" class="form-control" name="date" >
+            
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Create</button>
+          </form>
+    
+    </div>    
+</div>
+
+<!-- Notification Popup is Here -->
+<!-- Button trigger modal -->      
+      <!-- Modal -->
+      <div class="modal fade" id="Notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <img src="../../static/img/noresult.png" height="300px;" width="400px;" alt="">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Notification Popup End Here -->
+<br><br>
+
+
+
+
+
+<!-- Model for the Publish Notice will code is here -->
+
+<!-- Section only for the Dilog box or Notification -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Publish Notice</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="/publishnotice" method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Enter Notice here.." rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+        
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Section end here -->
+
+<!-- Model Close Here -->
+
+
+
+<!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>Class reunion</h3>
+            <p>Someday many years from now
+                We'll sit beside the candles glow
+                Exchanging tales about our past
+                And laughing as the memories flow
+                And when that distant day arrives
+                I know it will be understood
+                That friendship is the key to live
+                And we were friends and it was good.
+              <br>
+              -- Eileen Hehl
+              </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+            Students of  MIT Academy of Engineering
+              <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> student@mitaoe.ac.in<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe our Newsletter to and get our valueable feedback just by sending our email to us.</p>
+            <form action="" method="post">
+              <input type="email" placeholder="Enter Email" name="email"><input type="submit"  value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Class reunion</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       
+        Designed by <a href="#">Team Staunch</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="../../static/lib/jquery/jquery.min.js"></script>
+  <script src="../../static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/lib/easing/easing.min.js"></script>
+  <script src="../../static/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="../../static/lib/wow/wow.min.js"></script>
+  <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+  <script src="../../static/lib/counterup/counterup.min.js"></script>
+  <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../static/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="../../static/lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../../static/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Class Reunion</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/img/Capture.PNG"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!--===============================================================================================-->
+</head>
+<style>
+.signup{
+color:white;
+}
+.login100-form-btn:hover{
+	color: black;
+}
+.a:hover{
+	color: black;
+}
+</style>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			
+			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				<center>{{ uname }}</center>
+				<form class="login100-form validate-form flex-sb flex-w" action="/login" method="POST">
+					<span class="login100-form-title p-b-53">
+						Login
+						<br>
+						
+					</span>
+					<label for="">Username</label>
+					<input type="text" class="form-control" name="username" required><br><br>
+					<label for="">Password</label>
+					<input type="password" class="form-control" name="password" required><br><br>
+					<label for="">Select Role</label>
+					<select class="form-control" name="role" id="" >
+						<option value="">Select Role</option>
+						<option value="alumni">Alumni</option>
+						<option value="student">Student</option>
+						<option value="teacher">Teacher</option>
+						<option value="college">College</tion>
+						<option value="direct">directorate</option>
+					</select>
+					<div class="container-login100-form-btn m-t-17">
+						<button value="login" class="login100-form-btn">
+						Sign In
+						</button>
+					</div>
+
+					<div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Not a member?
+						</span>
+
+						<a href="/sign" class="txt2 bo1">
+							Sign up now
+						</a>
+						<br><br>
+						
+					</div>
+					<br><br>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

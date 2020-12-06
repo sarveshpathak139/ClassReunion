@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Class Reunion</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <!-- Bootstrap CSS File -->
+          <link rel="stylesheet" href="">
+
+          <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->	
+        <link rel="icon" type="image/png" href="../static/img/Capture.PNG"/>
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/">
+       
+    <!--===============================================================================================-->
+    
+    <!--===============================================================================================-->
+    
+    <!--===============================================================================================-->	
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href= "../static/css/main.css">
+        <link rel="stylesheet" type="text/css" href= "../static/css/util.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+    <!--===============================================================================================-->   
+ </head>
+ <style>
+    .signup{
+    color:white;
+    }
+    .login100-form-btn:hover{
+        color: black;
+    }
+    .a:hover{
+        color: black;
+    }
+    
+    </style>
+    <body>
+
+
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                   
+                        <span class="login100-form-title p-b-53">
+                            Sign up
+                        </span>
+                        <br>
+                        <div class="checkeboxgrp">
+                            <center> <div class="p-t-10">
+                             
+                                <label class="radio-container">Alumni
+                                    <input type="radio" id="alumnicheck" checked="check" name="gender">
+                                    <span class="checkmark"></span>
+                                </label>
+                                &nbsp;&nbsp;
+                                 <label class="radio-container">Student
+                                     <input type="radio" id="studentclic" name="gender">
+                                     <span class="checkmark"></span>
+                                 </label>&nbsp;&nbsp;&nbsp;
+                                 <label class="radio-container">Teacher
+                                         <input type="radio" id="teacherclic" name="gender">
+                                         <span class="checkmark"></span>
+                                     </label>
+                                     &nbsp;	&nbsp;&nbsp;
+                                     <label class="radio-container">College
+                                        <input type="radio" id="collegeclic"  name="gender">
+                                        <span class="checkmark"></span>
+                                    </label>			&nbsp;&nbsp;			 
+                                     
+                             </div></center>
+                             <br><br>
+                        </div>
+                    
+                    <div class="alumnifrm" id="alumnifrm">
+                        <form method="POST" action="/addalumni">
+                            <label for="">CollegeID</label>
+                            <input type="text" class="form-control" name="alumni_id" required><br>
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" name="alumni_name" required><br>
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" name="alumni_email" required><br>
+                            <label for="">Phone_number</label>
+                            <input type="number" min maxlength="10"  class="form-control" name="alumni_number" required><br>
+                           
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="alumni_password" required><br>
+                            <label for="">Branch</label>
+                            <select class="form-control" name="alumni_branch" id="" >
+                                <option value="">Select Branch</option>
+                                <option value="Information Technology">Information Technology</option>
+                                <option value="Computer Engineering">Computer Engineering</option>
+                                <option value="electrical Engineering">Electrical Engineering</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</tion>
+                                <option value="Electronics & Communication Engineering">Electronics & Communication Engineering</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
+                                <option value="Electronics Engineering">Electronics Engineering</option>
+                            </select>
+        <br>
+        <label for="">Join Year</label>
+                            <input type="text" class="form-control" placeholder="Ex: 2016" name="alumni_join_year" required><br>
+                            <label for="">Gradute Year</label>
+                            <input type="text" class="form-control" placeholder="Ex: 2020"  name="alumni_end_year" required><br>
+                            <label for="">Designation</label>
+                            <input type="text" class="form-control" placeholder="Ex: Web Developer"  name="alumni_desig" required><br>
+        
+                    
+                        <div class="container-login100-form-btn m-t-17">
+                            <button class="login100-form-btn" value="signup">
+                                  Sign Up
+                            </button>
+                        </div>
+        
+                    </form>
+                    </div>
+    
+    
+                    <form method="POST" action="/addstudent" id="studentform">
+                        <label for="">PRN</label>
+                        <input type="text" class="form-control" name="student_id" required><br>
+                        <label for="">Name</label>
+                        <input type="text" class="form-control" name="student_name" required><br>
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" name="student_email" required><br>
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="student_password" required><br>
+                        <label for="">Branch</label>
+                        <select class="form-control" name="student_branch" id="" >
+                            <option value="">Select Branch</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Computer Engineering">Computer Engineering</option>
+                            <option value="electrical">Electrical Engineering</option>
+                            <option value="mechnical">Mechanical Engineering</tion>
+                            <option value="E&TC">Electronics & Communication Engineering</option>
+                            <option value="Chemical">Chemical Engineering</option>
+                            <option value="Electronics">Electronics Engineering</option>
+                        </select>
+    <br>
+    <label for="">Join Year</label>
+                        <input type="text" class="form-control" name="student_join_year" required><br>
+                        <label for="">Gradute Year</label>
+                        <input type="text" class="form-control" name="student_end_year" required><br>
+    
+                        <label for="">College</label>
+                        <input type="text" class="form-control" name="student_college" required><br>
+                
+    
+    
+    
+                        <div class="container-login100-form-btn m-t-17">
+                            <button value="signup" class="login100-form-btn">
+                                  Sign Up
+                            </button>
+                        </div>
+                    </form>
+    
+    
+    <!-- Div For Teacher Form -->
+    
+    <div id="teacherform">
+        <form method="POST" action="/addteacher" id="studentform">
+            <label for="">Teacher ID</label>
+            <input type="text" class="form-control" name="teacher_id" required><br>
+            <label for="">Name</label>
+            <input type="text" class="form-control" name="teacher_name" required><br>
+            <label for="">Email</label>
+            <input type="text" class="form-control" name="teacher_email" required><br>
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="teacher_password" required><br>
+            <label for="">Department</label>
+            <select class="form-control" name="teacher_branch" id="" >
+                <option value="">Select Branch</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</tion>
+                <option value="Electronics & Communication">Electronics & Communication Engineering</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Electronics Engineering">Electronics Engineering</option>
+            </select>
+    <br>
+    <label for="">College</label>
+            <input type="text" class="form-control" name="teacher_college" required><br>
+        
+    
+            <div class="container-login100-form-btn m-t-17">
+                <button class="login100-form-btn" value="signup">
+                        Sign Up
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- Div For Techer Form End Here -->
+    
+    
+    <!-- div for College Registration -->
+    
+    <div id="collegeform">
+        <form method="POST" action="/addcolleges">
+            <label for="">CollegeID</label>
+            <input type="text" class="form-control" name="clg_id" required><br>
+            <label for="">College Full Name</label>
+            <input type="text" class="form-control" name="clg_name" required><br>
+            <label for="">Establish Year</label>
+            <input type="text" class="form-control" name="clg_esta_year" required><br>
+            <label for="">Email</label>
+            <input type="text" class="form-control" name="clg_email" required><br>
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="clg_password" required><br>
+    
+    <label for="">Website</label>
+            <input type="text" class="form-control" name="clg_website" required><br>
+        
+    
+            <label for="">Location</label>
+            <input type="text" class="form-control" name="clg_location" required><br>
+    
+            <div class="container-login100-form-btn m-t-17">
+                <button class="login100-form-btn" value="signup">
+                        Sign Up
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Div for College Registration End Here -->
+    
+    <!-- Directorate form Div Will be Here -->
+    
+    <div class="w-full text-center p-t-55">
+        <span class="txt2">
+            Have an Account?
+        </span>
+
+        <a href="/homelog" class="txt2 bo1">
+            login now
+        </a>
+    </div>
+</div>
+    
+    
+    
+    
+    
+                        <br><br>
+                        
+                    
+                </div>
+            </div</div>
+        </div>
+        </div>
+    
+        <div id="dropDownSelect1"></div>
+        
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <!-- Code Only For an Hide & Show -->
+    
+    <script>
+        $(document).ready(function(){
+        $("#studentform").hide();
+        $("#teacherform").hide();
+        $("#collegeform").hide();
+        $("#directorateform").hide();
+        
+    
+        $("#studentclic").click(function(){
+        $("#alumnifrm").hide();
+        $("#teacherform").hide();
+        $("#collegeform").hide();
+        $("#directorateform").hide();
+        $("#studentform").show(1000);
+    
+      });
+        
+      $("#alumnicheck").click(function(){
+        $("#alumnifrm").show(1000);
+        $("#studentform").hide();
+        $("#collegeform").hide();
+        $("#directorateform").hide();
+        $("#teacherform").hide();
+    
+      });
+    
+      $("#teacherclic").click(function(){
+        $("#alumnifrm").hide();
+        $("#studentform").hide();
+        $("#collegeform").hide();
+        $("#directorateform").hide();
+        $("#teacherform").show(1000);
+    
+      });
+      $("#collegeclic").click(function(){
+        $("#alumnifrm").hide();
+        $("#studentform").hide();
+        $("#teacherform").hide();
+        $("#directorateform").hide();
+        $("#collegeform").show(1000);
+    
+      });
+      
+      $("#directorateclic").click(function(){
+        $("#alumnifrm").hide();
+        $("#studentform").hide();
+        $("#teacherform").hide();
+        $("#collegeform").hide();
+        $("#directorateform").show(1000);
+    
+      });
+      
+    
+        });
+        </script>
+    
+
+
+
+        <!-- Div for the Post -->
+        <!-- <div>
+            <form action="/createpost" method="POST">
+                post<textarea name="userpost"></textarea>
+                <input type="file" name="fileup" />
+                <input type="submit" value="Create POST">
+            </form>
+        </div> -->
+    </body>
+</html>

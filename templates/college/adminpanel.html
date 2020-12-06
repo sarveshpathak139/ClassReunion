@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AdminPanel</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../../static/img/Capture.PNG" rel="icon">
+  <link href="../../static/img/Capture.PNG" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+	<script type="application/javascript" src="../../static/rbar.js"></script>
+  <!-- Main Stylesheet File -->
+  <link href="../../static/css/style.css" rel="stylesheet">
+
+</head>
+<style>
+body{
+  overflow-x: hidden;
+}
+</style>
+<body>
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+        <a href="#intro" class="scrollto"><img src="../../static/img/Capture.PNG" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li ><a href="/collegedashbord">Home</a></li>
+            <li  class="active"><a href="/adminpanel">AdminPanel</a></li> 
+            <li><a href="/adminuser">User</a></li>
+            <li><a href="/admincreateevent">Event</a></li>
+          <li><a href="/alumnidirectory">Alumni Directory</a></li>
+            <li><a href="/adminsetting">Setting</a></li>
+            <li><a href="../collegelogin.html">Logout</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->
+
+
+<br><br><br><br><br>
+
+<!-- Post of the User is Here -->
+<br>
+<center><h1>College AdminPanel</h1>
+    <hr style="border-bottom: 3px solid #007bff;width: 40px;">
+</center>
+<br><br>
+<center> 
+<div class="row">
+  <div class="col">
+    <div class="container" >
+      <div class="postdiv" style="box-shadow:0px 1px 1px 1px grey;border-radius: 20px;;width: 80%;margin-left: 0%;">
+                <br>
+                 <center><h3 style="color:#5c5fff"><b>324</b></h3>
+                  <h4>Total Alumuni</h4>
+                <br>
+                </center>
+    
+                </div>
+      </div>
+  </div>
+<div class="col">
+  <div class="container" >
+    <div class="postdiv" style="box-shadow:0px 1px 1px 1px grey;border-radius: 20px;;width: 80%;">
+      <br>
+      <center><h3 style="color:#5c5fff"><b>104</b></h3>
+        <h4 style="color:black">Online User</h4>
+     <br>
+     </center>
+
+  
+              </div>
+    </div>
+</div>
+
+<div class="col">
+  <div class="container" >
+    <div class="postdiv" style="box-shadow:0px 1px 1px 1px grey;border-radius: 20px;;width: 80%;margin-left: 15%;">
+      <br>
+      <center><h3 style="color:#5c5fff"><b>620</b></h3>
+      <h4>Teacher & Students</h4>
+     <br>
+     </center>
+
+  
+              </div>
+    </div>
+</div>
+
+</div>
+</center>
+<br><br>
+<br><br>
+<center><h2>Alumuni Analysis</h2>
+  <hr style="border-bottom: 3px solid #007bff;width: 40px;">
+</center>
+<br><br>
+<!-- Users Here -->
+<div class="container">
+    <div class="row">
+      <div class="col">
+          <p id="piechart" ></p>
+      </div>
+      <div class="col">
+          <canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;margin-top: 60px;">
+              Your browser does not support the HTML5 canvas tag.</canvas>
+              
+              <script type="application/javascript">
+                
+              
+                var data = [{'Google': 40}, {'Apple': 49}, {'Infosys': 130}, {'ZS Assciates': 110}, {'Mu Sigma': 55}];
+                var barcolor = ['#5c5fff', '#bb48e6', '#f12bc3', '#ff1f9c', '#ff3c75', '#ff6250', '#ff862d', '#ffa600', '#4CAF75', '#ff7354', '#ff8044'];
+                var obj = {
+                      barId: 'myCanvas', // Need To pass canvas id  and mandatory to generate the bar graph
+                      barData: data, // Bar data in the form of array of object and mandatory to pass atleast 1 value
+                      barColour: barcolor, // Bar colour as array and the default value is '#020202'
+                      barStroke: 40, // Bar Stroke as per your requirement and the default value is 50
+                      barSpaces: 80, // Space between 2 bar graph and the default value is 80
+                      barInnerPadding: 80, // Padding inside all side of the canvas and the default value is 80
+                      barDivisionPositionFromLineX: 20, // X-Axis division position from left side of the bar graph and the deafult value is 20
+                      barDivisionPositionFromLineY: 20, // Y-Axis division position from bottom side of the bar graph and the deafult value is 20
+                      barAnimation: true, // Used to define the animation from the bottom to top position and the default value is true
+                      barAnimationSpeed: 1, // Define the animation spedd of the graph and the default value is 1
+                      barTextFont: "14px Arial", // Define font size with font family name and the default value is 14px Arial
+                      barDivision: 5, // Define the division to the Y-Axis and the default value is 5
+                      barScaleDivisionReqX: true, // Define the scale division marking to the X-Axis and the default value is true
+                      barScaleDivisionReqY: true, // Define the scale division marking to the Y-Axis and the default value is true
+                      barScaleDivisionY: 20, // Define the manually setup the Y-Axis division upto the highest value of your array default value is null 
+                      barScaleDivisionStroke: 1, //Define the stroke of scale division and the default value is 1
+                      barScaleDivisionColour: '#333', //Define the stroke colour of the scale division and the default value is #333
+                      barAxisLineStroke: 2, //Define the stroke of the X & Y-Axis line and the default value is 1
+                      barAxisLineColour: '#333', //Define the stroke colour of the X & Y-axis line and the default value is #333
+                      barMaxHeight: 120 // Define the maximum height of the Y-Axis line of the bar graph and the default value is null
+                    };
+                
+                generateBarGraph(obj);
+                
+              </script>
+      </div>
+    </div>
+
+</div> 
+ 
+</div>
+
+<div class="container">
+    <div id="sector"></div>
+</div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- Section only for the Dilog box or Notification -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../../static/img/noresult.png" height="300px" width="450px;" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Section end here -->
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Job', 6],
+  ['Study', 2],
+  ['retired', 1],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'', 'width':380, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+<!-- User Close Here -->
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Job', 6],
+  ['Study', 2],
+  ['retired', 1],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('pie'));
+  chart.draw(data, options);
+}
+</script>
+
+<!-- Sector Wise Ratio -->
+<script type="text/javascript">
+  // Load google charts
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  
+  // Draw the chart and set the chart values
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ['Task', 'Hours per Day'],
+    ['pharmaceutical & medical', 8],
+    ['Education & advisory', 12],
+    ['Consumer Goods', 4],
+    ['Banking', 2],
+  ]);
+  
+    // Optional; add a title and set the width and height of the chart
+    var options = {'title':'Alumni working ratio Sector-Wise', 'width':550, 'height':400};
+  
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('sector'));
+    chart.draw(data, options);
+  }
+  </script>
+
+<!-- Sector -->
+<!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <h3>Class reunion</h3>
+            <p>Someday many years from now
+                We'll sit beside the candles glow
+                Exchanging tales about our past
+                And laughing as the memories flow
+                And when that distant day arrives
+                I know it will be understood
+                That friendship is the key to live
+                And we were friends and it was good.
+              <br>
+              -- Eileen Hehl
+              </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+            Students of  MIT Academy of Engineering
+              <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> student@mitaoe.ac.in<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe our Newsletter to and get our valueable feedback just by sending our email to us.</p>
+            <form action="" method="post">
+              <input type="email" placeholder="Enter Email" name="email"><input type="submit"  value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Class reunion</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+       
+        Designed by <a href="#">Team Staunch</a>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+
+<!-- Section only for the Dilog box or Notification -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+  <div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../../static/img/noresult.png" height="300px" width="450px;" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Section end here -->
+
+
+
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="../../static/lib/jquery/jquery.min.js"></script>
+  <script src="../../static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/lib/easing/easing.min.js"></script>
+  <script src="../../static/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="../../static/lib/wow/wow.min.js"></script>
+  <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../../static/js/main.js"></script>
+
+</body>
+</html>
